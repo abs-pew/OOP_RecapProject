@@ -6,11 +6,14 @@ import java.util.List;
 public class ShopService {
 
     ProductRepo productRepo;
-    OrderListRepo orderRepo = new OrderListRepo();
+   // OrderRepo orderRepo = new OrderListRepo();
+    //OrderRepo orderRepo = new OrderMapRepo();
+    OrderRepo orderRepo;
     public static int orderIdIndex = 0;
 
-    public ShopService(ProductRepo productRepo) {
+    public ShopService(ProductRepo productRepo, OrderRepo orderRepo) {
         this.productRepo = productRepo;
+        this.orderRepo = orderRepo;
     }
 
     public Order placeNewOder(List<String> productIds) {

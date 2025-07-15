@@ -10,11 +10,15 @@ public class Main {
         ProductRepo productRepo = new ProductRepo();
         stockProducts(productRepo);
 
-        ShopService macShopService = new ShopService(productRepo);
+OrderRepo orderRepo = new OrderMapRepo();
+
+        ShopService macShopService = new ShopService(productRepo, orderRepo);
         macShopService.placeNewOder(List.of("MAC002", "MAC004"));
         System.out.println(macShopService.orderRepo.toString());
 
         macShopService.placeNewOder(List.of("MAC001"));
+        macShopService.placeNewOder(List.of("MAC003"));
+
         System.out.println(macShopService.orderRepo.toString());
 
     }

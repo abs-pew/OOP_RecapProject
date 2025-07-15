@@ -3,8 +3,8 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderListRepo {
-    public List<Order> orders;
+public class OrderListRepo implements OrderRepo {
+    private List<Order> orders;
 
 
     public OrderListRepo() {
@@ -40,6 +40,12 @@ public class OrderListRepo {
 
     public List<Order> getAllOrders() {
      return orders;
+    }
+
+    public void displayAllOrders() {
+        for (Order Order : orders) {
+            System.out.println(Order.orderId());
+        }
     }
 
     @Override
